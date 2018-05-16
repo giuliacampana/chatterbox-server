@@ -2,7 +2,7 @@ var app = {
 
   //TODO: The current 'handleUsernameClick' function just toggles the class 'friend'
   //to all messages sent by the user
-  server: 'http://parse.CAMPUS.hackreactor.com/chatterbox/classes/messages',
+  server: ' http://parse.sfm6.hackreactor.com/chatterbox/classes/messages',
   username: 'anonymous',
   roomname: 'lobby',
   lastMessageId: 0,
@@ -44,6 +44,7 @@ var app = {
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
+        console.log(data);
         // Clear messages input
         app.$message.val('');
 
@@ -62,6 +63,7 @@ var app = {
       type: 'GET',
       data: { order: '-createdAt' },
       success: function(data) {
+      console.log(data);
         // Don't bother if we have nothing to work with
         if (!data.results || !data.results.length) { return; }
 
